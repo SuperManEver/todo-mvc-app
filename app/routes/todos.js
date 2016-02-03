@@ -10,6 +10,10 @@ export default Ember.Route.extend({
         title: title,
         complete: false
       }).save();
+    },
+    deleteTodo: function(todo) {
+      todo.deleteRecord();
+      todo.save();
     }
   }
 });

@@ -1,9 +1,9 @@
   <!-- <input type="checkbox" class="toggle" checked="{{if todo.complete 'checked'}}"> -->
-  {{#if editing}}
-    {{input type="text"  value=todo.title enter="updateTodo"}}
-  {{else}}
-    {{input type="checkbox" class="toggle" checked=todo.complete}}
-    <label class="{{if todo.complete 'completed'}}" 
-      {{action 'editTodo' on="doubleClick"}}>{{todo.title}}</label>
-    <button class="destroy"></button>
+{{#if editing}}
+  {{input class="edit" type="text"  value=todo.title enter="updateTodo"}}
+{{else}}
+  {{input type="checkbox" class="toggle" checked=todo.complete}}
+  <label class="{{if todo.complete 'completed'}}" 
+    {{action 'editTodo' on="doubleClick"}}>{{todo.title}}</label>
+  <button class="destroy" {{action "deleteTodo"}}></button>
 {{/if}}    
