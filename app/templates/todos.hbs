@@ -1,4 +1,6 @@
-<input type="text" id="new-todo" placeholder="What needs to be done?" />
+<!-- <input type="text" id="new-todo" placeholder="What needs to be done?" /> -->
+
+{{todo-input action="createTodo"}}
 
 {{#todo-list todos=model}}
   {{outlet}}
