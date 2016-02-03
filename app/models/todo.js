@@ -1,8 +1,8 @@
 import DS from 'ember-data';
 
 var Todo = DS.Model.extend({
-  title: DS.attr('string'),
-  complete: DS.attr('boolean')
+  title:      DS.attr('string'),
+  complete:   DS.attr('boolean')
 });
 
 Todo.reopenClass({

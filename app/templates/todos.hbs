@@ -1,7 +1,30 @@
-<!-- <input type="text" id="new-todo" placeholder="What needs to be done?" /> -->
-
 {{todo-input action="createTodo"}}
 
-{{#todo-list todos=model}}
+<section id="main">
   {{outlet}}
-{{/todo-list}}
+  
+  <input type="checkbox" id="toggle-all">
+</section> <!-- #main -->
+
+<footer id="footer">
+  <span id="todo-count">
+    <strong>{{remaining}}</strong> {{inflector}} left
+  </span>
+
+  <ul id="filters">
+    <li>
+      {{#link-to 'todos.index' activeClass="selected"}}All{{/link-to}}
+    </li>
+    <li>
+      {{#link-to 'todos.incomplete' activeClass="selected"}}Active{{/link-to}}
+    </li>
+    <li>
+      {{#link-to 'todos.complete' activeClass="selected"}}Completed{{/link-to}}
+    </li>
+  </ul>
+
+  <button id="clear-completed">
+    <span {{action "deleteCompleted"}}>Clear completed ({{completedAmount}})</span>
+  </button>
+</footer> <!-- #footer -->
+
