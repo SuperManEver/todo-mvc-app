@@ -24,7 +24,9 @@
   </ul>
 
   <button id="clear-completed">
-    <span {{action "deleteCompleted"}}>Clear completed ({{completedAmount}})</span>
+    {{#if hasCompleted}}
+      <span {{action "deleteCompleted"}}>Clear completed ({{completedAmount}})</span>
+    {{/if}}
   </button>
 </footer> <!-- #footer -->
 

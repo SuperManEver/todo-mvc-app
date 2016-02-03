@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
   }),
   inflector: Ember.computed('remaining', function() {
     var remaining = this.get('remaining');
-    return remaining === 1 ? 'todo' : 'todos';
+    return remaining === 1 ? 'item' : 'items';
   }),
   completed: Ember.computed('model.@each.complete', function() {
     return this.get('model').filterBy('complete', true);
@@ -15,6 +15,10 @@ export default Ember.Controller.extend({
   completedAmount: Ember.computed('completed', function() {
     var completed = this.get('completed');
     return completed.get('length');
+  }),
+  hasCompleted: Ember.computed('completedAmount', function() {
+    let n = this.get('completedAmount');
+    return n > 0 ? true : false
   }),
   actions: {
     deleteCompleted: function() {
